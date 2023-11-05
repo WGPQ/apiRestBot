@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "apiRestBot", "apiRestBot.csproj", "{BB2A5FA9-2FBE-41E6-9796-41C55A0A334F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB2A5FA9-2FBE-41E6-9796-41C55A0A334F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB2A5FA9-2FBE-41E6-9796-41C55A0A334F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB2A5FA9-2FBE-41E6-9796-41C55A0A334F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB2A5FA9-2FBE-41E6-9796-41C55A0A334F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EBF4E1EF-E2CA-4EC4-9BB7-105BF1938025}
+	EndGlobalSection
+EndGlobal
