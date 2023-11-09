@@ -1,0 +1,39 @@
+version: '1.0.0'
+
+networks:
+  bot:
+    driver: bridge
+    
+services:
+  webapibot:
+    image: docker.io/library/apirestbot
+    depends_on:
+      - "bot_db"
+    container_name: webapibot-services
+    ports:
+      - "5203:5203"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ConnectionStrings__ConnectionStringMySQL=server=bot_db;user=root;password=************port=3306;database=bibliochatutn
+      - ASPNETCORE_URLS=http://*:5203
+    networks:
+      - bot
+    
+
+  bot_db:
+    image: mariadb
+    container_name: bot_db
+    environment:
+      MYSQL_ROOT_PASSWORD: =************
+    ports:
+      - "33060:3306"
+    restart: always
+    volumes:
+      - bot_data:/var/lib/mariadb/data
+    networks:
+      - bot
+
+volumes:
+  bot_data:

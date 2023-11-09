@@ -108,15 +108,14 @@ var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
 //Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
+if (app.Environment.IsDevelopment())
+{
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "API Bibliochat UTN");
-        //options.RoutePrefix = string.Empty;
     });
-//}
+}
 
 app.UseRouting();
 app.UseAuthentication(); // This need to be added	
@@ -130,4 +129,4 @@ app.UseEndpoints(endpoints =>
 
 app.MapControllers();
 
-app.Run("http://*:5203");
+app.Run();
