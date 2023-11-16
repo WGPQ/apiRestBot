@@ -57,14 +57,16 @@ namespace ApiRestBot.Controllers
 
         [HttpGet]
         [Route("solicitudes/listar")]
-        public async Task<ResultadoEntity> ListarSolicitudes(string anio,string meses,string columna, string nombre, int offset, int limit, string sort)
+        public async Task<ResultadoEntity> ListarSolicitudes(string? anio,string? meses,string? columna, string? nombre, int? offset, int? limit, string? sort)
         {
-            Listar listar = new Listar();
-            listar.columna = columna;
-            listar.nombre = nombre;
-            listar.offset = offset;
-            listar.limit = limit;
-            listar.sort = sort;
+            Listar listar = new()
+            {
+                columna = columna,
+                nombre = nombre,
+                offset = offset,
+                limit = limit,
+                sort = sort
+            };
             return await this.data.ChatRepository.ListarSolicitudes(anio,meses,listar);
         }
 
@@ -77,7 +79,7 @@ namespace ApiRestBot.Controllers
 
         [HttpGet]
         [Route("mensaje/Listar")]
-        public async Task<ResultadoEntity> Mensajes(string chat, string columna, string nombre, int offset, int limit, string sort)
+        public async Task<ResultadoEntity> Mensajes(string? chat, string? columna, string? nombre, int? offset, int? limit, string? sort)
         {
             Listar listar = new Listar();
             listar.columna = columna;
@@ -90,7 +92,7 @@ namespace ApiRestBot.Controllers
 
         [HttpGet]
         [Route("mensajes/Session")]
-        public async Task<ResultadoEntity> MensajesBySession(string session)
+        public async Task<ResultadoEntity> MensajesBySession(string? session)
         {
             return await this.data.ChatRepository.MessagesBySession(session);
         }
@@ -98,7 +100,7 @@ namespace ApiRestBot.Controllers
 
         [HttpGet]
         [Route("mensajes/Usuario")]
-        public async Task<ResultadoEntity> MensajesByLastSession(string id)
+        public async Task<ResultadoEntity> MensajesByLastSession(string? id)
         {
             return await this.data.ChatRepository.MessagesByLastSession(id);
         }
@@ -106,7 +108,7 @@ namespace ApiRestBot.Controllers
 
         [HttpGet]
         [Route("sesiones/Listar")]
-        public async Task<ResultadoEntity> Sesiones(string usuario, string columna, string nombre, int offset, int limit, string sort)
+        public async Task<ResultadoEntity> Sesiones(string? usuario, string? columna, string? nombre, int? offset, int? limit, string? sort)
         {
             Listar listar = new Listar();
             listar.columna = columna;
@@ -120,7 +122,7 @@ namespace ApiRestBot.Controllers
 
         [HttpGet]
         [Route("interaccion/Listar")]
-        public async Task<ResultadoEntity> Interacciones(string columna, string nombre, int offset, int limit, string sort)
+        public async Task<ResultadoEntity> Interacciones(string? columna, string? nombre, int? offset, int? limit, string? sort)
         {
             Listar listar = new Listar();
             listar.columna = columna;
@@ -143,7 +145,7 @@ namespace ApiRestBot.Controllers
         [HttpGet]
         [Route("comentarios/Listar")]
      
-        public async Task<ResultadoEntity> Comentarios(string columna, string nombre, int offset, int limit, string sort)
+        public async Task<ResultadoEntity> Comentarios(string? columna, string? nombre, int? offset, int? limit, string? sort)
         {
             Listar listar = new Listar();
             listar.columna = columna;

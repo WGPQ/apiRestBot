@@ -265,7 +265,7 @@ namespace ApiRestBot.Providers.Repositories
             return contraseniaAleatoria;
         }
 
-        public async Task<ResultadoEntity> UsuariosEnLines(int rol)
+        public async Task<ResultadoEntity> UsuariosEnLines(int? rol)
         {
             ResultadoEntity result = new ResultadoEntity();
             result.exito = false;

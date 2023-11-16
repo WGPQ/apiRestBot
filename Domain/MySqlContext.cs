@@ -20,6 +20,7 @@ namespace ApiRestBot.Domain
             modelBuilder.Entity<ChatEntity>().HasNoKey();
             modelBuilder.Entity<NuevosMessages>().HasNoKey();
             modelBuilder.Entity<DisponibilidadEntity>().HasNoKey();
+
         }
 
         public virtual DbSet<UsuarioEntity> Usuarios { get; set; }

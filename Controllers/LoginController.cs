@@ -64,7 +64,7 @@ namespace ApiRestBot.Controllers
 
         [HttpGet]
         [Route("logout/{session}")]
-        public async Task<ResultadoEntity> Logout(string session)
+        public async Task<ResultadoEntity> Logout(string? session)
         {
             var token = HttpContext.Request.Headers["Authorization"];
             return await this.data.AuthRepository.Logout(session, token);
@@ -107,7 +107,7 @@ namespace ApiRestBot.Controllers
 
         [HttpGet]
         [Route("session/usuario/{id}")]
-        public Task<ResultadoEntity> GetSessionByUser(string id )
+        public Task<ResultadoEntity> GetSessionByUser(string? id )
         {
             return data.AuthRepository.ObtenerSessionByUser(id);
         }

@@ -44,8 +44,7 @@ var builder = WebApplication.CreateBuilder(args);
     services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
     {
         builder
-        //.WithOrigins("*")
-        .AllowAnyOrigin()
+        .WithOrigins("*")
         .AllowAnyHeader()
         .AllowAnyMethod();
     }));
@@ -116,7 +115,8 @@ if (app.Environment.IsDevelopment())
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "API Bibliochat UTN");
     });
 }
-
+// global cors policy
+app.UseCors("CorsPolicy");
 app.UseRouting();
 app.UseAuthentication(); // This need to be added	
 app.UseAuthorization();

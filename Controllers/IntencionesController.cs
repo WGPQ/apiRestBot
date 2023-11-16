@@ -34,7 +34,7 @@ namespace ApiRestBot.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("Listar")]
-        public async Task<ResultadoEntity> Get(string columna, string nombre, int offset, int limit, string sort)
+        public async Task<ResultadoEntity> Get(string? columna, string? nombre, int? offset, int? limit, string? sort)
         {
             Listar listar = new Listar();
             listar.columna = columna;
@@ -65,7 +65,7 @@ namespace ApiRestBot.Controllers
 
         [HttpDelete]
         [Route("Eliminar/{id}")]
-        public async Task<ResultadoEntity> Delete(string id)
+        public async Task<ResultadoEntity> Delete(string? id)
         {
             var token = HttpContext.Request.Headers["Authorization"];
             return await this.data.IntencionRepository.Eliminar(id,token);
@@ -73,14 +73,14 @@ namespace ApiRestBot.Controllers
 
         [HttpGet]
         [Route("Obtener/{id}")]
-        public async Task<ResultadoEntity> GetBayId(string id)
+        public async Task<ResultadoEntity> GetBayId(string? id)
         {
             return await this.data.IntencionRepository.Obtener(id);
         }
 
         [HttpGet]
         [Route("Exportar")]
-        public async Task<IActionResult> Exportar(string columna, string nombre, int offset, int limit, string sort)
+        public async Task<IActionResult> Exportar(string? columna, string? nombre, int? offset, int? limit, string? sort)
         {
             Listar listar = new Listar();
             listar.columna = columna;

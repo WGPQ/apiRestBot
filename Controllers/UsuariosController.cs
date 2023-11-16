@@ -37,20 +37,22 @@ namespace ApiRestBot.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("Listar")]
-        public async Task<ResultadoEntity> Get(string rol, string columna, string nombre, int offset, int limit, string sort)
+        public async Task<ResultadoEntity> Get(string? rol, string? columna, string? nombre, int? offset, int? limit, string? sort)
         {
-            Listar listar = new Listar();
-            listar.columna = columna;
-            listar.nombre = nombre;
-            listar.offset = offset;
-            listar.limit = limit;
-            listar.sort = sort;
+            Listar listar = new()
+            {
+                columna = columna,
+                nombre = nombre,
+                offset = offset,
+                limit = limit,
+                sort = sort
+            };
             return await this.data.UsuarioRepository.Listar(rol, listar);
         }
 
         [HttpGet]
         [Route("Linea")]
-        public async Task<ResultadoEntity> Get(int rol)
+        public async Task<ResultadoEntity> Get(int? rol)
         {
             return await this.data.UsuarioRepository.UsuariosEnLines(rol);
         }
@@ -83,7 +85,7 @@ namespace ApiRestBot.Controllers
 
         [HttpDelete]
         [Route("Eliminar/{id}")]
-        public async Task<ResultadoEntity> Delete(string id)
+        public async Task<ResultadoEntity> Delete(string? id)
         {
             var token = HttpContext.Request.Headers["Authorization"];
             return await this.data.UsuarioRepository.Eliminar(id, token);
@@ -91,14 +93,14 @@ namespace ApiRestBot.Controllers
 
         [HttpGet]
         [Route("Obtener/{id}")]
-        public async Task<ResultadoEntity> GetBayId(string id)
+        public async Task<ResultadoEntity> GetBayId(string? id)
         {
             return await this.data.UsuarioRepository.Obtener(id);
         }
 
         [HttpGet]
         [Route("Exportar")]
-        public async Task<IActionResult> Exportar(string rol, string columna, string nombre, int offset, int limit, string sort)
+        public async Task<IActionResult> Exportar(string? rol, string? columna, string? nombre, int? offset, int? limit, string? sort)
         {
             Listar listar = new Listar();
             listar.columna = columna;

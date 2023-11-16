@@ -23,7 +23,7 @@ namespace ApiRestBot.Controllers
         }
         [HttpGet]
         [Route("Listar")]
-        public async Task<ResultadoEntity> Get(string columna, string nombre, int offset, int limit, string sort)
+        public async Task<ResultadoEntity> Get(string? columna, string? nombre, int? offset, int? limit, string? sort)
         {
             Listar listar = new Listar();
             listar.columna = columna;
@@ -56,7 +56,7 @@ namespace ApiRestBot.Controllers
 
         [HttpGet]
         [Route("Obtener/{id}")]
-        public async Task<ResultadoEntity> GetBayId(string id)
+        public async Task<ResultadoEntity> GetBayId(string? id)
         {
             return await this.data.BotRepository.Obtener(id);
         }

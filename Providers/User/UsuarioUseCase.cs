@@ -14,7 +14,7 @@ namespace ApiRestBot.Providers.User
         Task<R> Insertar(T entiti, string token);
         Task<R> Actualizar(T entiti, string token);
         Task<R> Eliminar(string id, string token);
-        Task<R> UsuariosEnLines(int rol);
+        Task<R> UsuariosEnLines(int? rol);
 
         Task<R> Obtener(string id);
 
